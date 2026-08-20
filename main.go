@@ -47,11 +47,11 @@ func formatage(phrase []string) string {
 		switch cara {
 		case ' ':
 			suivant := rune(phrase2[index+1])
-			estPonctuation := suivant == '.' || suivant == ',' || suivant == ';' || suivant == '?' || suivant == '!'
+			estPonctuation := suivant == '.' || suivant == ',' || suivant == ';' || suivant == '?' || suivant == '!' || suivant == ':'
 			if suivant != ' ' && index != 0 && !estPonctuation {
 				resultat = append(resultat, cara)
 			}
-		case ',', ';', '.', '!', '?':
+		case ',', ';', '.', '!', '?', ':':
 			resultat = append(resultat, cara)
 			if isLettre(rune(phrase2[index+1])) {
 				resultat = append(resultat, ' ')
@@ -64,35 +64,49 @@ func formatage(phrase []string) string {
 }
 
 func formatageApostrophe(s string) string {
+	dejavu := false
+	indexvu := []int{}
 	for i := 0; i < len(s)-1; i++ {
 		if s[i] == '\'' {
-			if i != 0 && isLettre(rune(s[i-1])) && isLettre(rune(s[i+1])) {
-				continue
-			} else {
-				for e := i + 1; e < len(s)-1; e++ {
-					if s[e] == ' ' {
-						s = removeCara(s, e)
-						e--
-					} else {
-						break
-					}
+			for _, nb := range indexvu {
+				if nb == i {
+					dejavu = true
 				}
-				for e := i + 1; e < len(s)-1; e++ {
-					if s[e] != '\'' {
-						continue
-					}
-					if i != 0 && isLettre(rune(s[e-1])) && isLettre(rune(s[e+1])) {
-						continue
-					}
-					for j := e - 1; j >= 0; j-- {
-						if s[j] == ' ' {
-							s = removeCara(s, j)
+			}
+			if !dejavu {
+				if i != 0 && isLettre(rune(s[i-1])) && isLettre(rune(s[i+1])) {
+					indexvu = append(indexvu, i)
+					continue
+				} else {
+					for e := i + 1; e < len(s)-1; e++ {
+						if s[e] == ' ' {
+							s = removeCara(s, e)
+							e--
 						} else {
 							break
 						}
 					}
-					break
+					for e := i + 1; e < len(s); e++ {
+						if s[e] != '\'' {
+							continue
+						}
+						if e != len(s)-1 && isLettre(rune(s[e-1])) && isLettre(rune(s[e+1])) {
+							indexvu = append(indexvu, e)
+							continue
+						}
+						for j := e - 1; j >= 0; j-- {
+							if s[j] == ' ' {
+								s = removeCara(s, j)
+							} else {
+								indexvu = append(indexvu, j+1)
+								break
+							}
+						}
+						break
+					}
 				}
+			} else {
+				dejavu = false
 			}
 		}
 	}

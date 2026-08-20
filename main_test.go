@@ -145,22 +145,22 @@ func TestFormatageComplet(t *testing.T) {
 		{
 			nom:     "apostrophe deja correcte",
 			entree:  "Je suis exactement comme ils me décrivent : 'génial'",
-			attendu: "Je suis exactement comme ils me décrivent : 'génial'",
+			attendu: "Je suis exactement comme ils me décrivent: 'génial'",
 		},
 		{
 			nom:     "apostrophe avec espaces a nettoyer",
 			entree:  "Je suis exactement comme ils me décrivent : ' génial '",
-			attendu: "Je suis exactement comme ils me décrivent : 'génial'",
+			attendu: "Je suis exactement comme ils me décrivent: 'génial'",
 		},
 		{
 			nom:     "apostrophe multi-mots avec elisions (exemple enonce)",
 			entree:  "Comme l'a dit Elton John : ' Je suis l'homosexuel le plus connu au monde '",
-			attendu: "Comme l'a dit Elton John : 'Je suis l'homosexuel le plus connu au monde'",
+			attendu: "Comme l'a dit Elton John: 'Je suis l'homosexuel le plus connu au monde'",
 		},
 		{
 			nom:     "deux paires de guillemets dans la meme phrase",
 			entree:  "il a dit : ' ok ' puis ' stop '",
-			attendu: "il a dit : 'ok' puis 'stop'",
+			attendu: "il a dit: 'ok' puis 'stop'",
 		},
 		{
 			nom:     "elision seule sans guillemet",
