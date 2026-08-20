@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"go-reloeded/formatage"
+	"testing"
+)
 
 func TestFormatageComplet(t *testing.T) {
 	cas := []struct {
@@ -210,7 +213,7 @@ func TestFormatageComplet(t *testing.T) {
 
 	for _, c := range cas {
 		t.Run(c.nom, func(t *testing.T) {
-			resultat := formatageComplet([]byte(c.entree))
+			resultat := formatage.FormatageComplet([]byte(c.entree))
 			if resultat != c.attendu {
 				t.Errorf("entrée:   %q\nattendu:  %q\nobtenu:   %q", c.entree, c.attendu, resultat)
 			}
