@@ -70,6 +70,7 @@ func BeforeVoy(phrase []string, place int) bool {
 	return false
 }
 
+// enleve une lettre d'un string et le renvoie modifier
 func RemoveCara(s string, place int) string {
 	var result []rune
 	for i, cara := range s {

@@ -2,6 +2,7 @@ package formatage
 
 import "go-reloeded/tools"
 
+// cherche dans la phrase donner s'il existe un parametre de la forme (parametre) et change les mot en fonction de lui et supprime les parametres de la phrase
 func modif(f []string) []string {
 	for i := 0; i < len(f)-1; i++ {
 		if tools.Notmot(f[i+1]) {
@@ -18,7 +19,7 @@ func modif(f []string) []string {
 	return f
 }
 
-// change un mot en fontion du parametre donner
+// change un mot d'une phrase en fontion du parametre donner et de sa position
 func change(phrase []string, para string, place int) {
 	if len(para) > 5 {
 		parametre := para[:4]

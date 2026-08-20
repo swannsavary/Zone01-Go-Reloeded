@@ -4,7 +4,7 @@ import (
 	"go-reloeded/tools"
 )
 
-// formate avec les bonnes regles la position des apostrophe
+// formate, avec les bonnes regles, la position des apostrophes
 func formatageApostrophe(s string) string {
 	dejavu := false
 	indexvu := []int{}

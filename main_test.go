@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// fonction test
 func TestFormatageComplet(t *testing.T) {
 	cas := []struct {
 		nom     string

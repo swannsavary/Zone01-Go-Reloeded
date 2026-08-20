@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-// prend le fichier sample,le modifie puis renvoie le resultat dans result.txt
+// prend le 1er fichier,le formate puis renvoie le resultat dans le second fichier
 func main() {
 	args := os.Args[1:]
 	if len(args) != 2 {
