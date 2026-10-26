@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"go-reloeded/formatage"
 	"log"
 	"os"
@@ -11,7 +10,7 @@ import (
 func main() {
 	args := os.Args[1:]
 	if len(args) != 2 {
-		fmt.Println("Error, need 2 arguments")
+		os.Stdout.WriteString("Error, need 2 arguments\n")
 		return
 	}
 	file, err := os.ReadFile(args[0])

@@ -4,7 +4,7 @@ import (
 	"go-reloeded/tools"
 )
 
-// modifie les espace et les ponctuation pour que la phrase soit comforme aux regles d'orthographe
+// Modifie les espaces et la ponctuation pour que la phrase soit conforme aux règles d'orthographe.
 func formatage(phrase string) string {
 	var resultat []rune
 	for index, cara := range phrase {

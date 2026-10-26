@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// appel toutes les fonctions de formatage
+// Appelle toutes les fonctions de formatage
 func FormatageComplet(file []byte) string {
 	f := strings.Fields(string(file))
 	f = modif(f)

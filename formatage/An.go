@@ -4,7 +4,7 @@ import (
 	"go-reloeded/tools"
 )
 
-// change le mot a en an si le mot suivant comment par une voyelle ou h
+// change le mot "a" en "an" si le mot suivant comment par une voyelle ou "h"
 func formatageOfA(phrase []string) []string {
 	for i, cara := range phrase {
 		if cara == "a" {

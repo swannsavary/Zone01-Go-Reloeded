@@ -11,7 +11,7 @@ func Cap(mot string) string {
 	return string(result)
 }
 
-// change un nombre d'une base en base 16
+// change un nombre d'une base en base 16 (Hexadecimal)
 func Hex(mot string) string {
 	val, err := strconv.ParseInt(mot, 16, 64)
 	if err != nil {
@@ -20,7 +20,7 @@ func Hex(mot string) string {
 	return strconv.Itoa(int(val))
 }
 
-// change un nombre d'une base en base 2
+// change un nombre d'une base en base 2 (binaire)
 func Bin(mot string) string {
 	val, err := strconv.ParseInt(mot, 2, 64)
 	if err != nil {
